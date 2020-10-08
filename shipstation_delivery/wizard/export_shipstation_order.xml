@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		<record id="export_shipstation_order_form_view"
+			model="ir.ui.view">
+			<field name="name">export.shipstation.order.form</field>
+			<field name="model">export.shipstation.order</field>
+			<field name="arch" type="xml">
+				<form>
+					<footer>
+						<button name="prepare_export_data" type="object"
+							string="Export Order" class="btn-primary" />
+					</footer>
+				</form>
+			</field>
+		</record>
+
+		<record id="action_export_shipstation_order"
+			model="ir.actions.act_window">
+			<field name="name">Export Shipstation Order</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">export.shipstation.order</field>
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="export_shipstation_order_form_view" />
+			<field name="target">new</field>
+			<field name="binding_model_id" ref="stock.model_stock_picking" />
+		</record>
+
+
+	</data>
+</odoo>
